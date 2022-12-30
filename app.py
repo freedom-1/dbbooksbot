@@ -14,7 +14,7 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def send_welcome(message: types.Message):
-    await message.reply(text="Welcome. You can search for books on the dbooks.org site through this bot.")
+    await message.reply(text="<b>Assalomu alaykum hurmatli Bilimdonlar va kutubxonlar</b>\n<b>Bu bot aynan sizlar uchun xizmat qiladi degan umiddamiz</b>")
 
 
 @dp.message_handler(content_types="text")
@@ -33,7 +33,7 @@ async def search_book(message: types.Message):
                 ans = ans_title + "\n\n" + "\n\n".join(ans_content)
                 await message.answer(text=ans, reply_markup=recent_books_list(books_data=books))
             else:
-                await message.answer(text="Book not found 😭")
+                await message.answer(text="<b>Afsusdaman birorta kitob topolmadim</b>😭")
         except Exception as e:
             logging.info(e)
 
